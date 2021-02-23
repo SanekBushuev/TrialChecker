@@ -37,7 +37,8 @@ namespace TrialChecker
                 CheckDateManipulation = true,
                 EveryCallCheck = false,
                 LicenseFilePath = Path.Combine(Environment.CurrentDirectory, "license.lic"),
-                RSAPublicKey = @"<RSAKeyValue><Modulus>2OO32RsAa73GjFw171YUkwOTyguKeT3N1zjAZY04/f4TdpRABfNBs1aHICepzhQ1gy1TBnYX3K95b+qD7u6CczU65JzormbqlgY1rweG+HNwGcn36g0M66k7qwfFSjZhbmlGTvedD7xo4L/pSf91p7KwjzLt6ac8+UAdqVfKsu0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
+                RSAPublicKey = @"<RSAKeyValue><Modulus>2OO32RsAa73GjFw171YUkwOTyguKeT3N1zjAZY04/f4TdpRABfNBs1aHICepzhQ1gy1TBnYX3K95b+qD7u6CczU65JzormbqlgY1rweG+HNwGcn36g0M66k7qwfFSjZhbmlGTvedD7xo4L/pSf91p7KwjzLt6ac8+UAdqVfKsu0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>",
+                SuppressExceptions = true
             };
             Reconfigurate(Configuration);
         }
@@ -105,6 +106,8 @@ namespace TrialChecker
             {
                 Console.WriteLine($"ERROR: {ex}");
                 ShowInformation(ex.Message);
+                if (!Configuration.SuppressExceptions)
+                    throw;
             }
 
             return false;

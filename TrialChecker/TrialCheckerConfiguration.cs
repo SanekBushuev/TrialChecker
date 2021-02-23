@@ -31,5 +31,9 @@ namespace TrialChecker
         /// Открытый ключ шифра
         /// </summary>
         public string RSAPublicKey { get; set; }
+        /// <summary>
+        /// Подавлять Exception'ы (при возникновении Exception просто возвращать false) 
+        /// </summary>
+        public bool SuppressExceptions { get; set; } = false;
     }
 }
